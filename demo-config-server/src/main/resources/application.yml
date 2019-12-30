@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jiantao-guo/springcloud-demo    #Զ�ֿ̲��ַ
+          username: 1227686430@qq.com
+          password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
