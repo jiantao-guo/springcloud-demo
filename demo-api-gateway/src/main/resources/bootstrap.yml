@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config
+      profile: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+ribbon:
+  ReadTimeout: 120000  #请求处理的超时时间
+  ConnectTimeout: 30000  #请求连接的超时时间
+zuul:
+  routes:
+    myConfig:           #自定义访问规则名
+      path: /myConfig/**     #url
+      serviceId: config      #对应服务名
+#  ignored-patterns:          #排除路由
+#    - /**/demo-dev.yml
+#简洁写法
+#zuul:
+#  routes:
+#    config: /myConfig/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: routes
